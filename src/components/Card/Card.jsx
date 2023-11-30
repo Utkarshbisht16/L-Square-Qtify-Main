@@ -23,9 +23,11 @@ function Card({ data, type}) {
                                 <div className={styles.card}>
                                     <img src={image} alt="album" loading="lazy" />
                                     <div className={styles.banner}>
-                                    <div className={styles.pill}>
-                                        <p>{follows} Follows</p>
-                                    </div>
+                                        <Chip
+                                            label={`${follows} Follows`}
+                                            size="small"
+                                            className={styles.chipp}
+                                        />
                                     </div>
                                 </div>
                                 <div className={styles.titleWrapper}>
@@ -42,7 +44,7 @@ function Card({ data, type}) {
                     <div className={styles.card}>
                         <img src={image} alt="song" loading="lazy" />
                         <div className={styles.banner}>
-                            <div className={styles.pill}>
+                            <div className={styles.pills}>
                                 <p>{likes} Likes</p>
                             </div>
                         </div>
