@@ -2,8 +2,16 @@ import React from "react";
 import {Tooltip, Chip} from '@mui/material';
 import styles from './Card.module.css'
 import { Link } from "react-router-dom";
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 function Card({ data, type}) {
+    const theme = createTheme({
+        palette: {
+          primary: {
+            main: '#121212',
+          },
+        },
+      });
     const getCard = (type) => {
         switch (type) {
             case "album": {
@@ -15,11 +23,9 @@ function Card({ data, type}) {
                                 <div className={styles.card}>
                                     <img src={image} alt="album" loading="lazy" />
                                     <div className={styles.banner}>
-                                        <Chip
-                                            label={`${follows} Follows`}
-                                            size="small"
-                                            className=""
-                                        />
+                                    <div className={styles.pill}>
+                                        <p>{follows} Follows</p>
+                                    </div>
                                     </div>
                                 </div>
                                 <div className={styles.titleWrapper}>
@@ -36,7 +42,7 @@ function Card({ data, type}) {
                     <div className={styles.card}>
                         <img src={image} alt="song" loading="lazy" />
                         <div className={styles.banner}>
-                            <div className={styles.pills}>
+                            <div className={styles.pill}>
                                 <p>{likes} Likes</p>
                             </div>
                         </div>
